@@ -65,7 +65,7 @@ function checkEnd(){
     
 }
 function up() {
-    for (var i = casilaActual; i > 1; i = i - 5) {
+    for (var i = casilaActual; i > 0; i = i - 5) {
         if (document.getElementById(i).classList.length == 2 && document.getElementById(i).classList.contains('final') == false) {
             nuevaCasilla = document.getElementById(i + 5);
             callRepaint();

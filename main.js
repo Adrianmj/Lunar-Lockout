@@ -1,6 +1,5 @@
 var stringOpen = "<button class=\"default\" id=\"";
-var stringClose = "\"  onclick=\"select(this.id)\"><div class=\"textButton\">.</div></button>"
-
+var stringClose = "\"  onclick=\"select(this.id)\"><div class=\"textButton\">.</div></button>";
 var piezas = ["X", "B", "Y", "G", "O", "P"];
 direcciones = {
     38: 'up',
@@ -9,40 +8,70 @@ direcciones = {
     39: 'right',
 }
 
-
+var opcion;
 var foco;
 var lastClass;
 var casilaActual;
 var nuevaCasilla;
 //Funcion para dibujar el tablero
 function define() {
+    document.getElementById("Main").innerHTML = "";
     var body = document.getElementById("Main");
     for (var i = 0; i < 25; i++) {
         body.innerHTML = body.innerHTML + stringOpen + i + stringClose;
     };
     document.getElementById('12').classList.add('final');
-    document.getElementById('21').classList.add('X');
-    document.getElementById('4').classList.add('P');
-    document.getElementById('0').classList.add('O');
-    document.getElementById('2').classList.add('G');
-    //document.getElementById('17').classList.add('B');
-    document.getElementById('19').classList.add('Y');
 }
 
+function reset() {
+    for (var j = 0; j < 25; j++) {
+        document.getElementById(j).className = "";
+    };
+    document.getElementById('12').classList.add('final');
+
+}
+
+
 function load() {
-        AJAX('maps.json', function(d) { console.log(JSON.parse(d)) });
+    reset();
+    AJAX('maps.json', function(d) {
+        //Seleccionamos la op del combobox
+        var e = document.getElementById('lista');
+        var seleccionada = e.options[e.selectedIndex].value;
+        var aux = JSON.parse(d);
+        console.log(seleccionada);
+        console.log(aux);
+        switch (seleccionada) {
+            case 'easy':
+                opcion = aux.mapas.easy;
+                break;
+            case 'normal':
+                opcion = aux.mapas.normal;
+                break;
+            case 'hard':
+                opcion = aux.mapas.hard;
+                break;
+        }
+        for (var i = 0; i < opcion.length; i++) {
+            console.log(opcion[i].position);
+            console.log(opcion[i].type);
+            document.getElementById(opcion[i].position).classList.add(opcion[i].type);
+
+        };
+
+    });
 
 }
 
 function AJAX(url, callback) {
-var client = new XMLHttpRequest()
-        client.onreadystatechange = function() {
-            if (client.readyState == 4 && client.status == 200)
+    var client = new XMLHttpRequest()
+    client.onreadystatechange = function() {
+        if (client.readyState == 4 && client.status == 200)
             callback(client.responseText)
-        }
-client.open('GET', url)
-        client.send()
     }
+    client.open('GET', url)
+    client.send()
+}
 
 
 //Funcion de seleccionar la casilla que clickamos, además pone las demas al estado original.

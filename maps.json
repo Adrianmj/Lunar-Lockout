@@ -1,7 +1,27 @@
 {
 	"mapas":{
 		"easy":[
-		{"type":"X","position":24}
+		{"type":"X","position":18},
+		{"type":"O","position":1},
+		{"type":"G","position":8},
+		{"type":"P","position":15},
+		{"type":"Y","position":22}
+		],
+		"normal":[
+		{"type":"X","position":20},
+		{"type":"P","position":23},
+		{"type":"Y","position":24},
+		{"type":"G","position":11},
+		{"type":"O","position":8}
+
+		],
+		"hard":[
+		{"type":"X","position":24},
+		{"type":"B","position":23},
+		{"type":"O","position":0},
+		{"type":"G","position":1},
+		{"type":"P","position":9},
+		{"type":"Y","position":15}
 		]
 	}
 }

@@ -3,6 +3,7 @@ body {
 }
 
 #Main {
+    display: inline-block;
     width: 510px;
 }
 
@@ -50,4 +51,9 @@ button {
 
 .focus {
     border: solid 5px black;
+}
+
+#loader {
+    display: inline-block;
+    top:0;
 }

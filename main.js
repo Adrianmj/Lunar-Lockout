@@ -29,6 +29,22 @@ function define() {
     document.getElementById('19').classList.add('Y');
 }
 
+function load() {
+        AJAX('maps.json', function(d) { console.log(JSON.parse(d)) });
+
+}
+
+function AJAX(url, callback) {
+var client = new XMLHttpRequest()
+        client.onreadystatechange = function() {
+            if (client.readyState == 4 && client.status == 200)
+            callback(client.responseText)
+        }
+client.open('GET', url)
+        client.send()
+    }
+
+
 //Funcion de seleccionar la casilla que clickamos, además pone las demas al estado original.
 function select(a) {
     var aux = document.getElementById(a);
@@ -41,7 +57,7 @@ function select(a) {
     if (aux.classList.length != 1) {
         aux.classList.add('focus');
     }
-     checkEnd();
+    checkEnd();
 
 }
 
@@ -57,19 +73,21 @@ function callRepaint() {
     select(nuevaCasilla.id);
 }
 
-function checkEnd(){
+function checkEnd() {
     console.log(foco);
-    if(foco[0].classList.contains('final')){
+    if (foco[0].classList.contains('final')) {
         console.log('wena');
     }
-    
+
 }
+
 function up() {
     for (var i = casilaActual; i > 0; i = i - 5) {
         if (document.getElementById(i).classList.length == 2 && document.getElementById(i).classList.contains('final') == false) {
             nuevaCasilla = document.getElementById(i + 5);
             callRepaint();
-            break;s
+            break;
+            s
         }
     }
 }

@@ -1,0 +1,53 @@
+body {
+    font-size: 0px;
+}
+
+#Main {
+    width: 510px;
+}
+
+button {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+}
+
+.textButton {
+    opacity: 0;
+}
+
+.default {
+    background-color: white;
+}
+
+.final {
+    background-color: pink;
+}
+
+.X {
+    background-color: red;
+}
+
+.Y {
+    background-color: yellow;
+}
+
+.B {
+    background-color: blue;
+}
+
+.O {
+    background-color: orange;
+}
+
+.P {
+    background-color: purple;
+}
+
+.G {
+    background-color: green;
+}
+
+.focus {
+    border: solid 5px black;
+}

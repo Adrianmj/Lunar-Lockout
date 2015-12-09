@@ -32,11 +32,6 @@ function reset() {
     };
     document.getElementById('12').classList.add('final');
     var e = document.getElementById('lista');
-    for (i in parsedJson.mapas) {
-        if (e.contains(i.name) == false) {
-            e.add(new Option(i, i.name))
-        };
-    }
     var seleccionada = e.options[e.selectedIndex].value;
     switch (seleccionada) {
         case 'easy':
@@ -60,6 +55,12 @@ function load() {
     AJAX('maps.json', function(d) {
         //Seleccionamos la op del combobox
         parsedJson = JSON.parse(d);
+        var e = document.getElementById('lista');
+        for (i in parsedJson.mapas) {
+            if (e.contains(i.name) == false) {
+                e.add(new Option(i, i.name))
+            };
+        }
     });
     define();
     console.log(parsedJson);

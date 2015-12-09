@@ -22,6 +22,8 @@ function define() {
         body.innerHTML = body.innerHTML + stringOpen + i + stringClose;
     };
     document.getElementById('12').classList.add('final');
+    reset();
+
 }
 
 function reset() {
@@ -30,6 +32,9 @@ function reset() {
     };
     document.getElementById('12').classList.add('final');
     var e = document.getElementById('lista');
+    for (i in parsedJson.mapas) {
+        e.add(new Option(i,i.name))
+    }
     var seleccionada = e.options[e.selectedIndex].value;
     console.log(seleccionada);
     console.log(parsedJson);

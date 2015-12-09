@@ -28,7 +28,7 @@ function define() {
 
 function reset() {
     for (var j = 0; j < 25; j++) {
-        document.getElementById(j).className = "";
+        document.getElementById(j).className = "default";
     };
     document.getElementById('12').classList.add('final');
     var e = document.getElementById('lista');

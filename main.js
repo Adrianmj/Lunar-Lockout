@@ -33,7 +33,7 @@ function reset() {
     document.getElementById('12').classList.add('final');
     var e = document.getElementById('lista');
     for (i in parsedJson.mapas) {
-        e.add(new Option(i,i.name))
+        e.add(new Option(i, i.name))
     }
     var seleccionada = e.options[e.selectedIndex].value;
     console.log(seleccionada);
@@ -101,7 +101,11 @@ function setVariables() {
 }
 
 function callRepaint() {
+    console.log("Repaint!!");
+    console.log(foco[0].classList);
+    console.log(lastClass)
     foco[0].classList.remove(lastClass);
+    console.log(nuevaCasilla);
     nuevaCasilla.classList.add(lastClass);
     select(nuevaCasilla.id);
 }
@@ -115,8 +119,10 @@ function checkEnd() {
 }
 
 function up() {
-    for (var i = casilaActual; i > 0; i = i - 5) {
-        if (document.getElementById(i).classList.length == 2 && document.getElementById(i).classList.contains('final') == false) {
+    for (var i = casilaActual-5; i > 0; i = i - 5) {
+        console.log(document.getElementById(i));
+        if (document.getElementById(i).classList.length != 1 && document.getElementById(i).classList.contains('final') == false){
+            console.log(i);
             nuevaCasilla = document.getElementById(i + 5);
             callRepaint();
             break;
@@ -127,7 +133,7 @@ function up() {
 
 
 function down() {
-    for (var i = casilaActual; i < 25; i = i + 5) {
+    for (var i = casilaActual+5; i < 25; i = i + 5) {
         if (document.getElementById(i).classList.length == 2 && document.getElementById(i).classList.contains('final') == false) {
             nuevaCasilla = document.getElementById(i - 5);
             callRepaint();

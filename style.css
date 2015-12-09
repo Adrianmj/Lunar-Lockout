@@ -4,7 +4,8 @@ body {
 
 #Main {
     display: inline-block;
-    width: 510px;
+    width: 500px;
+    background-image: url('images/background.jpg');
 }
 
 button {
@@ -19,48 +20,57 @@ button {
 
 .default {
     background-color: white;
+    border: solid 1px black;
+    opacity: 0.1;
 }
 
 .final {
     background-size: contain;
     background-image: url('images/base.png');
     background-color: pink;
+    opacity: 1;
 }
 
 .X {
     background-size: contain;
     background-image: url('images/red.png');
     background-color: red;
+    opacity: 1;
 }
 
 .Y {
     background-size: contain;
     background-image: url('images/yellow.png');
     background-color: yellow;
+    opacity: 1;
 }
 
 .B {
     background-size: contain;
     background-image: url('images/blue.png');
     background-color: blue;
+    opacity: 1;
 }
 
 .O {
     background-size: contain;
     background-image: url('images/orange.png');
     background-color: orange;
+    opacity: 1;
 }
 
 .P {
     background-size: contain;
     background-image: url('images/purple.png');
     background-color: purple;
+    opacity: 1;
 }
 
 .G {
     background-size: contain;
     background-image: url('images/green.png');
     background-color: green;
+    opacity: 1;
 }
 
 .focus {

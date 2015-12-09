@@ -99,3 +99,9 @@ button {
     height: 0px;
     display: inline;
 }
+
+#tutorial{
+    width:500px;
+    font-size: 19px;
+    opacity: 1;
+}

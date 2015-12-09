@@ -22,30 +22,44 @@ button {
 }
 
 .final {
+    background-size: contain;
+    background-image: url('images/base.png');
     background-color: pink;
 }
 
 .X {
+    background-size: contain;
+    background-image: url('images/red.png');
     background-color: red;
 }
 
 .Y {
+    background-size: contain;
+    background-image: url('images/yellow.png');
     background-color: yellow;
 }
 
 .B {
+    background-size: contain;
+    background-image: url('images/blue.png');
     background-color: blue;
 }
 
 .O {
+    background-size: contain;
+    background-image: url('images/orange.png');
     background-color: orange;
 }
 
 .P {
+    background-size: contain;
+    background-image: url('images/purple.png');
     background-color: purple;
 }
 
 .G {
+    background-size: contain;
+    background-image: url('images/green.png');
     background-color: green;
 }
 
@@ -54,10 +68,11 @@ button {
 }
 
 #loader {
-    position:absolute;
+    position: absolute;
     display: inline-block;
 }
-#load{
+
+#load {
     height: 20px;
     width: 70px;
 }

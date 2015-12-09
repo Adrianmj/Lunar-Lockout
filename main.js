@@ -94,7 +94,11 @@ function select(a) {
 
 function setVariables() {
     foco = document.getElementsByClassName('focus');
-    lastClass = foco[0].classList[1];
+    if (foco[0].classList[1] == 'final') {
+        lastClass = foco[0].classList[2];
+    } else {
+        lastClass = foco[0].classList[1];
+    }
     casilaActual = parseInt(foco[0].id);
 }
 

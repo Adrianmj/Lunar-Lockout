@@ -13,6 +13,7 @@ var foco;
 var lastClass;
 var casilaActual;
 var nuevaCasilla;
+var parsedJson;
 //Funcion para dibujar el tablero
 function define() {
     document.getElementById("Main").innerHTML = "";
@@ -28,39 +29,37 @@ function reset() {
         document.getElementById(j).className = "";
     };
     document.getElementById('12').classList.add('final');
+    var e = document.getElementById('lista');
+    var seleccionada = e.options[e.selectedIndex].value;
+    console.log(seleccionada);
+    console.log(parsedJson);
+    switch (seleccionada) {
+        case 'easy':
+            opcion = parsedJson.mapas.easy;
+            break;
+        case 'normal':
+            opcion = parsedJson.mapas.normal;
+            break;
+        case 'hard':
+            opcion = parsedJson.mapas.hard;
+            break;
+    }
+    for (var i = 0; i < opcion.length; i++) {
+        console.log(opcion[i].position);
+        console.log(opcion[i].type);
+        document.getElementById(opcion[i].position).classList.add(opcion[i].type);
 
+    };
 }
 
 
 function load() {
-    reset();
     AJAX('maps.json', function(d) {
         //Seleccionamos la op del combobox
-        var e = document.getElementById('lista');
-        var seleccionada = e.options[e.selectedIndex].value;
-        var aux = JSON.parse(d);
-        console.log(seleccionada);
-        console.log(aux);
-        switch (seleccionada) {
-            case 'easy':
-                opcion = aux.mapas.easy;
-                break;
-            case 'normal':
-                opcion = aux.mapas.normal;
-                break;
-            case 'hard':
-                opcion = aux.mapas.hard;
-                break;
-        }
-        for (var i = 0; i < opcion.length; i++) {
-            console.log(opcion[i].position);
-            console.log(opcion[i].type);
-            document.getElementById(opcion[i].position).classList.add(opcion[i].type);
-
-        };
-
+        parsedJson = JSON.parse(d);
     });
-
+    define();
+    console.log(parsedJson);
 }
 
 function AJAX(url, callback) {

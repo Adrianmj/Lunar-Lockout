@@ -14,6 +14,8 @@ var lastClass;
 var casilaActual;
 var nuevaCasilla;
 var parsedJson;
+var checkPosition;
+var regExp = "/x|O|G|X|P|B|Y|x/";
 //Funcion para dibujar el tablero
 function define() {
     document.getElementById("Main").innerHTML = "";
@@ -104,18 +106,13 @@ function setVariables() {
 }
 
 function callRepaint() {
-    console.log("Repaint!!");
-    console.log(foco[0].classList);
-    console.log(lastClass)
     foco[0].classList.remove(lastClass);
-    console.log(nuevaCasilla);
     nuevaCasilla.classList.add(lastClass);
     select(nuevaCasilla.id);
 }
 
 function checkEnd() {
-    console.log(foco);
-    if (foco[0].classList.contains('final')) {
+    if (foco[0].classList.contains('final') && foco[0].classList.contains('X')) {
         alert("EZPZ");
     }
 
@@ -123,13 +120,13 @@ function checkEnd() {
 
 function up() {
     for (var i = casilaActual - 5; i => 0; i = i - 5) {
-        console.log(document.getElementById(i));
-        if (document.getElementById(i).classList.length != 1 && document.getElementById(i).classList.contains('final') == false) {
-            console.log(i);
+        checkPosition = document.getElementById(i);
+        console.log(checkPosition)
+
+        if (checkPosition.classList.length != 1 && checkPosition.className.match(regExp) != null) {
             nuevaCasilla = document.getElementById(i + 5);
             callRepaint();
             break;
-            s
         }
     }
 }
@@ -137,7 +134,9 @@ function up() {
 
 function down() {
     for (var i = casilaActual + 5; i < 25; i = i + 5) {
-        if (document.getElementById(i).classList.length == 2 && document.getElementById(i).classList.contains('final') == false) {
+        checkPosition = document.getElementById(i);
+        console.log(checkPosition)
+        if (checkPosition.classList.length != 1 && checkPosition.className.match(regExp) != null) {
             nuevaCasilla = document.getElementById(i - 5);
             callRepaint();
             break;
@@ -150,7 +149,8 @@ function left() {
     var i = casilaActual;
     i--;
     while (i % 5 != 4) {
-        if (document.getElementById(i).classList.length == 2 && document.getElementById(i).classList.contains('final') == false) {
+        checkPosition = document.getElementById(i);
+        if (checkPosition.classList.length != 1 && checkPosition.className.match(regExp) != null) {
             nuevaCasilla = document.getElementById(i + 1);
             callRepaint();
             break;
@@ -164,7 +164,8 @@ function right() {
     var i = casilaActual;
     i++;
     while (i % 5 != 0) {
-        if (document.getElementById(i).classList.length == 2 && document.getElementById(i).classList.contains('final') == false) {
+        checkPosition = document.getElementById(i);
+        if (document.getElementById(i).classList.length != 1 && checkPosition.className.match(regExp) != null) {
             nuevaCasilla = document.getElementById(i - 1);
             callRepaint();
             break;
@@ -175,7 +176,6 @@ function right() {
 
 window.onkeydown = function(e) {
     setVariables();
-
     switch (direcciones[e.keyCode]) {
         case 'up':
             up();

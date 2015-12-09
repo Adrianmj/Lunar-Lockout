@@ -76,3 +76,16 @@ button {
     height: 20px;
     width: 70px;
 }
+
+#preload_area {
+    background-image: url('images/orange.png');
+    background-image: url('images/red.png');
+    background-image: url('images/base.png');
+    background-image: url('images/purple.png');
+    background-image: url('images/green.png');
+    background-image: url('images/yellow.png');
+    background-image: url('images/blue.png');
+    width: 0px;
+    height: 0px;
+    display: inline;
+}

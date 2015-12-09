@@ -116,13 +116,13 @@ function callRepaint() {
 function checkEnd() {
     console.log(foco);
     if (foco[0].classList.contains('final')) {
-        console.log('wena');
+        alert("EZPZ");
     }
 
 }
 
 function up() {
-    for (var i = casilaActual - 5; i > 0; i = i - 5) {
+    for (var i = casilaActual - 5; i => 0; i = i - 5) {
         console.log(document.getElementById(i));
         if (document.getElementById(i).classList.length != 1 && document.getElementById(i).classList.contains('final') == false) {
             console.log(i);

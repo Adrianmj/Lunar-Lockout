@@ -1,11 +1,17 @@
 body {
     font-size: 0px;
+    background-image: url('images/wallpaper.jpg');
+}
+
+#github {
+    font-size: 20px;
 }
 
 #Main {
     display: inline-block;
     width: 500px;
     background-image: url('images/background.jpg');
+    margin-left: 35%;
 }
 
 button {
@@ -100,8 +106,28 @@ button {
     display: inline;
 }
 
-#tutorial{
-    width:500px;
+#tutorial {
+    width: 500px;
     font-size: 19px;
     opacity: 1;
+}
+
+a {
+    margin-left: 10px;
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+}
+
+li {
+    color: white;
+}
+
+#tutorial {
+    margin-left: 35%;
+}
+
+a:visited {
+    text-decoration: none;
+    color: white;
 }

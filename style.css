@@ -11,17 +11,19 @@ body {
     display: inline-block;
     width: 500px;
     background-image: url('images/background.jpg');
-    margin-left: 35%;
+    border: 1px solid black;
 }
 
 button {
     width: 100px;
     height: 100px;
     background-color: white;
+    position: relative;
 }
 
 .textButton {
     opacity: 0;
+    margin: 0px auto 0px auto;
 }
 
 .default {
@@ -110,6 +112,7 @@ button {
     width: 500px;
     font-size: 19px;
     opacity: 1;
+    margin: 0px auto;
 }
 
 a {
@@ -121,13 +124,22 @@ a {
 
 li {
     color: white;
-}
-
-#tutorial {
-    margin-left: 35%;
+    text-shadow: 2px 2px 1px black;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
 }
 
 a:visited {
     text-decoration: none;
     color: white;
+}
+
+#maincontain {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
